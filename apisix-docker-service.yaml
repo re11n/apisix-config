@@ -1,13 +1,13 @@
+# service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: hugo-site
-  namespace: hugo-site
+  name: apisix-java-service
 spec:
   selector:
-    app: hugo-site
+    app: apisix-java
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
