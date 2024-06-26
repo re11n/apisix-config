@@ -1,10 +1,21 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-   name: apisix-pod
+  name: hugo-site
+  namespace: hugo-site
 spec:
-   containers:
-   - name: apisix-container01
-     image: rizqia/apisix-java-jdk17:demo-3
-     ports:
-     - containerPort: 6379
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hugo-site
+  template:
+    metadata:
+      labels:
+        app: hugo-site
+    spec:
+      containers:
+      - name: hugo-site
+        image: rizqia/apisix-java-jdk17:demo-3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
