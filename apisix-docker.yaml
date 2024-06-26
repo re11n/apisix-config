@@ -18,3 +18,18 @@ spec:
         image: rizqia/apisix-java-jdk17:demo-3
         ports:
         - containerPort: 8080
+        env:
+        - name: ETCD_HOST
+          value: "http://etcd:2379"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 20
