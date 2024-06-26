@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: apisix-pod
+spec:
+   containers:
+   - name: apisix-container01
+     image: rizqia/apisix-java-jdk17:demo-3
+     ports:
+     - containerPort: 6379
