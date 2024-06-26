@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etcd-config
+  namespace: etcd
+data:
+  etcd.conf.yaml: |
+    name: etcd0
+    data-dir: /etcd-data
+    listen-client-urls: http://0.0.0.0:2379
+    advertise-client-urls: http://0.0.0.0:2379
+    listen-peer-urls: http://0.0.0.0:2380
+    initial-advertise-peer-urls: http://0.0.0.0:2380
+    initial-cluster: etcd0=http://0.0.0.0:2380
+    initial-cluster-state: new
