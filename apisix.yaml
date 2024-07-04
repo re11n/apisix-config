@@ -304,7 +304,7 @@ spec:
   selector:
     app.kubernetes.io/instance: apisix
     app.kubernetes.io/name: apisix
-  type: ClusterIP
+  type: LoadBalancer
 ---
 kind: Service
 apiVersion: v1
